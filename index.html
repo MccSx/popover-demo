@@ -46,14 +46,23 @@
         </div>
     </div>
 <script>
+    let now = false
     clickMe.addEventListener('click', function () {
-        popover.style.display = 'block'
+        if (!now) {
+            popover.style.display = 'block'
+            now = true
+        } else {
+            popover.style.display = 'none'
+            now = false
+        }
+        console.log(now)
     })
     wrapper.addEventListener('click', function (e) {
         e.stopPropagation()
     })
-    document.addEventListener('click', function () {
+    document.addEventListener('click', function (e) {
         popover.style.display = 'none'
+        now = false
     })
 </script>
 </body>
